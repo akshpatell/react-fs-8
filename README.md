@@ -45,3 +45,10 @@
 ## setup react
 
 - npm i react react-dom
+
+# lifecycle methods
+
+- mounting
+- updating
+- unmounting
+- error
