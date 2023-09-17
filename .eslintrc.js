@@ -20,5 +20,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  ignorePatterns: ['**/build/*.js'],
   rules: {},
 };
