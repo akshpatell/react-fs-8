@@ -1,11 +1,8 @@
 import React from 'react';
+import Todo from './Todo';
 
-const App = () => {
-  return (
-    <div>
-      <h1>App</h1>
-    </div>
-  );
-};
+function App() {
+  return <Todo />;
+}
 
 export default App;
