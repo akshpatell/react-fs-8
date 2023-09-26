@@ -6,19 +6,17 @@ const TodoForm = forwardRef(({ handleSubmit }, ref) => {
   return (
     <section>
       <form className="flex" onSubmit={handleSubmit}>
-        <div>
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label htmlFor="todoText" className="sr-only">
-            todo
-          </label>
+        <label htmlFor="todoText">
+          <span className="sr-only">todo inputbox</span>
           <input
             ref={ref}
             type="text"
             id="todoText"
-            className="rounded-l-md w-full"
+            className="rounded-l-md w-full bg-transparent"
             placeholder="Todo..."
           />
-        </div>
+        </label>
+
         <button type="submit" className="btn primary rounded-l-none w-max">
           <PlusIcon className="w-5 aspect-square" strokeWidth="2" />
           <span>Add Todo</span>

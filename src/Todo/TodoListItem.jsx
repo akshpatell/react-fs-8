@@ -1,33 +1,30 @@
 import React, { memo } from 'react';
 import DeleteIcon from '../../public/assets/icons/delete.svg';
-import EditIcon from '../../public/assets/icons/edit.svg';
 
-function TodoListItem({ todo, deleteTodo, toggleComplete, editTodo }) {
+function TodoListItem({ todo, deleteTodo, toggleComplete }) {
   console.log('item render', todo.id);
   return (
     <div className="flex gap-4 justify-between items-center">
-      <div className="flex justify-between items-center">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor={`isCompleted-${todo.id}`} className="sr-only">
-          is completed
-        </label>
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label className="flex gap-2 items-center">
         <input
           className="appearance-none checked:bg-blue-500 indeterminate:bg-gray-300"
           type="checkbox"
           name="isCompleted"
-          id={`isCompleted-${todo.id}`}
           checked={todo.isCompleted}
           onChange={() => toggleComplete(todo)}
         />
-      </div>
-      <p
-        className={`flex-1 line-clamp-1 ${
-          todo.isCompleted && 'line-through text-slate-500'
-        }`}
-        title={todo.title}
-      >
-        {todo.title}
-      </p>
+        <span className="sr-only">is completed</span>
+        <p
+          className={`flex-1 line-clamp-1 ${
+            todo.isCompleted && 'line-through text-slate-500'
+          }`}
+          title={todo.title}
+        >
+          {todo.title}
+        </p>
+      </label>
+
       <button
         type="button"
         className="btn error aspect-square"
