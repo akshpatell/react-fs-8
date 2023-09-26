@@ -4,7 +4,7 @@ import FilterIcon from '../../public/assets/icons/filter.svg';
 function TodoFilter({ filterTodo }) {
   console.log('filters render');
   return (
-    <section className="flex gap-8 justify-end">
+    <section className="flex gap-2 justify-end">
       <FilterIcon className="w-6 aspect-square" />
       <select name="filter" id="filter" onChange={filterTodo}>
         <option value="all">All</option>

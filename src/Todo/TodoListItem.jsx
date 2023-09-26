@@ -12,7 +12,7 @@ function TodoListItem({ todo, deleteTodo, toggleComplete, editTodo }) {
           is completed
         </label>
         <input
-          className="appearance-none checked:bg-green-500 indeterminate:bg-gray-300 focus:bg-green-200"
+          className="appearance-none checked:bg-blue-500 indeterminate:bg-gray-300"
           type="checkbox"
           name="isCompleted"
           id={`isCompleted-${todo.id}`}
@@ -21,7 +21,9 @@ function TodoListItem({ todo, deleteTodo, toggleComplete, editTodo }) {
         />
       </div>
       <p
-        className={`flex-1 line-clamp-1 ${todo.isCompleted && 'line-through'}`}
+        className={`flex-1 line-clamp-1 ${
+          todo.isCompleted && 'line-through text-slate-500'
+        }`}
         title={todo.title}
       >
         {todo.title}
@@ -29,6 +31,7 @@ function TodoListItem({ todo, deleteTodo, toggleComplete, editTodo }) {
       <button
         type="button"
         className="btn error aspect-square"
+        aria-label="delete button"
         onClick={() => deleteTodo(todo)}
       >
         <DeleteIcon className="w-4 aspect-square text-white" />
