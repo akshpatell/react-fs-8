@@ -4,14 +4,10 @@ import TodoFilters from './TodoFilters';
 import TodoList from './TodoList';
 import Footer from '../Footer';
 import Header from '../Header';
-import TodoHOC from '../HOC/TodoHOC';
 import ThemeContext from '../context/themeContext';
 
-const Todo = forwardRef(
-  (
-    { handleSubmit, filterTodo, deleteTodo, toggleComplete, todoList, filter },
-    ref,
-  ) => (
+function Todo() {
+  return (
     <ThemeContext.Consumer>
       {({ theme }) => (
         <div
@@ -20,23 +16,18 @@ const Todo = forwardRef(
           }`}
         >
           <Header />
-          <main className="flex-1 flex flex-col gap-8 px-2 sm:px-8 items-center w-full overflow-scroll">
+          <main className="flex-1 flex flex-col gap-8 px-2 sm:px-8 items-center w-full overflow-y-scroll">
             <div className="flex flex-col sm:flex-row justify-between gap-4 w-full py-2">
-              <TodoForm handleSubmit={handleSubmit} ref={ref} />
-              <TodoFilters filterTodo={filterTodo} />
+              <TodoForm />
+              <TodoFilters />
             </div>
-            <TodoList
-              todoList={todoList}
-              filter={filter}
-              deleteTodo={deleteTodo}
-              toggleComplete={toggleComplete}
-            />
+            <TodoList />
           </main>
           <Footer />
         </div>
       )}
     </ThemeContext.Consumer>
-  ),
-);
+  );
+}
 
-export default TodoHOC(memo(Todo));
+export default memo(Todo);

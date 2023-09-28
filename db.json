@@ -2,7 +2,7 @@
   "todoList": [
     {
       "title": "lorem ipsum",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 1
     },
     {
@@ -24,16 +24,6 @@
       "title": "annafanfnlaafaaaf afafafa faaa",
       "isCompleted": true,
       "id": 5
-    },
-    {
-      "title": "hii",
-      "isCompleted": false,
-      "id": 6
-    },
-    {
-      "title": "hello",
-      "isCompleted": false,
-      "id": 7
     },
     {
       "title": "abc",

@@ -18,4 +18,8 @@
   .btn.error {
     @apply bg-red-600 text-white hover:bg-red-500 focus-visible:outline-red-600;
   }
+
+  .btn.round {
+    @apply p-2 rounded-full aspect-square;
+  }
 }
