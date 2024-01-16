@@ -4,6 +4,7 @@ import Footer from '../Footer';
 import Header from '../Header';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
+import TodoFilters from './TodoFilters';
 
 function Todo({ theme }) {
   return (
@@ -16,7 +17,7 @@ function Todo({ theme }) {
       <main className="flex-1 flex flex-col gap-8 px-2 sm:px-8 items-center w-full overflow-y-scroll">
         <div className="flex flex-col sm:flex-row justify-between gap-4 w-full py-2">
           <TodoForm />
-          {/* <TodoFilters /> */}
+          <TodoFilters />
         </div>
         <TodoList />
       </main>

@@ -8,7 +8,7 @@ import {
 } from '../lib/functions/todoFunctions';
 
 function TodoList({ todo, dispatch }) {
-  const { todoList, loading, hasError } = todo;
+  const { todoList, loading, hasError, filter } = todo;
 
   const loadData = async () => {
     dispatch({ type: 'LOAD_TODO_REQUEST' });
@@ -41,12 +41,38 @@ function TodoList({ todo, dispatch }) {
     <section className="relative flex-1 flex flex-col w-full overflow-hidden">
       <p className="flex gap-2 py-5">
         <span>filter value:</span>
-        {/* <span>{filter}</span> */}
+        <span>{filter}</span>
       </p>
 
       <h2 className="sticky top-0 left-0 text-slate-500 text-xl">Todo List</h2>
       <div className="border rounded-md border-slate-500 flex-1 flex flex-col gap-4 p-4 overflow-y-scroll">
-        {todoList &&
+        {filter === 'pending' &&
+          todoList &&
+          todoList
+            .filter((x) => !x.isCompleted)
+            .map((todo, index) => (
+              <TodoListItem
+                key={todo.id || index}
+                todo={todo}
+                deleteTodo={() => deleteData(todo)}
+                toggleComplete={() => toggleComplete(todo)}
+              />
+            ))}
+        {filter === 'completed' &&
+          todoList &&
+          todoList
+            .filter((x) => x.isCompleted)
+            .map((todo, index) => (
+              <TodoListItem
+                key={todo.id || index}
+                todo={todo}
+                deleteTodo={() => deleteData(todo)}
+                toggleComplete={() => toggleComplete(todo)}
+              />
+            ))}
+        {filter !== 'pending' &&
+          filter !== 'completed' &&
+          todoList &&
           todoList.map((todo, index) => (
             <TodoListItem
               key={todo.id || index}

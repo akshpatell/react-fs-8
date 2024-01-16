@@ -2,6 +2,7 @@ const initTodo = {
   todoList: [],
   loading: false,
   hasError: null,
+  filter: 'all',
 };
 
 const todoReducer = (state = initTodo, { type, payload }) => {
@@ -10,6 +11,7 @@ const todoReducer = (state = initTodo, { type, payload }) => {
     case 'ADD_TODO_REQUEST':
     case 'UPDATE_TODO_REQUEST':
     case 'DELETE_TODO_REQUEST':
+    case 'FILTER_TODO_REQUEST':
       return { ...state, loading: true, hasError: null };
     case 'LOAD_TODO_SUCCESS': {
       return {
@@ -51,6 +53,9 @@ const todoReducer = (state = initTodo, { type, payload }) => {
         loading: false,
         hasError: null,
       };
+    }
+    case 'FILTER_TODO_SUCCESS': {
+      return { ...state, filter: payload };
     }
     case 'LOAD_TODO_ERROR':
       return { ...state, loading: false, hasError: { message: payload.error } };

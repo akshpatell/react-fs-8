@@ -13,7 +13,7 @@ function TodoForm({ dispatch }) {
       const title = ref.current.value;
       dispatch({ type: 'ADD_TODO_REQUEST' });
       const newTodo = await addTodo({ title });
-      console.log(newTodo);
+      ref.current.value = '';
       dispatch({ type: 'ADD_TODO_SUCCESS', payload: newTodo });
     }
   };
