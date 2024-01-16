@@ -1,19 +1,14 @@
-import React from 'react';
+import React, { memo } from 'react';
+import { Provider } from 'react-redux';
 import Todo from './Todo';
-import { FilterProvider } from './context/filterContext';
-import { ThemeProvider } from './context/themeContext';
-import { TodoProvider } from './context/todoContext';
+import store from './lib/redux/store';
 
 function App() {
   return (
-    <ThemeProvider>
-      <FilterProvider>
-        <TodoProvider>
-          <Todo />
-        </TodoProvider>
-      </FilterProvider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <Todo />
+    </Provider>
   );
 }
 
-export default App;
+export default memo(App);
