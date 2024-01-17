@@ -1,11 +1,6 @@
 {
   "todoList": [
     {
-      "title": "lorem ipsum",
-      "isCompleted": true,
-      "id": 1
-    },
-    {
       "title": "Etiam sollicitudin dolor in molestie lobortis. Etiam bibendum ipsum ut.",
       "isCompleted": false,
       "id": 2
